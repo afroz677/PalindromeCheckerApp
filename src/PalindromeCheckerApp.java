@@ -1,21 +1,23 @@
-public class PalindromeCheckerApp {
+public class UseCase13PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
-        String input = "racecar";
+        String input = "level";
 
-        PalindromeService service = new PalindromeService();
+        long startTime = System.nanoTime();
 
-        boolean isPalindrome = service.checkPalindrome(input);
+        boolean isPalindrome = check(input);
+
+        long endTime = System.nanoTime();
+
+        long duration = endTime - startTime;
 
         System.out.println("Input : " + input);
         System.out.println("Is Palindrome? : " + isPalindrome);
+        System.out.println("Execution Time : " + duration + " ns");
     }
-}
 
-class PalindromeService {
-
-    public boolean checkPalindrome(String input) {
+    private static boolean check(String input) {
 
         int start = 0;
         int end = input.length() - 1;
